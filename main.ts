@@ -9,38 +9,35 @@ radio.onReceivedNumber(function (receivedNumber) {
             # # # # #
             # # # # #
             `)
+    } else if (128 < receivedNumber) {
+        basic.showLeds(`
+            . . . . .
+            . # # # .
+            . # # # .
+            . # # # .
+            . . . . .
+            `)
+    } else if (64 < receivedNumber) {
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . # . .
+            . . . . .
+            . . . . .
+            `)
     } else {
-        if (128 < receivedNumber) {
-            basic.showLeds(`
-                . . . . .
-                . # # # .
-                . # # # .
-                . # # # .
-                . . . . .
-                `)
-        } else {
-            if (64 < receivedNumber) {
-                basic.showLeds(`
-                    . . . . .
-                    . . . . .
-                    . . # . .
-                    . . . . .
-                    . . . . .
-                    `)
-            } else {
-                basic.showLeds(`
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    `)
-            }
-        }
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            `)
     }
 })
 let recv_timeout = 0
 radio.setGroup(1)
+radio.setTransmitPower(7)
 basic.forever(function () {
     basic.pause(1000)
     recv_timeout += 1
