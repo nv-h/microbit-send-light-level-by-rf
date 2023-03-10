@@ -1,4 +1,5 @@
 radio.onReceivedNumber(function (receivedNumber) {
+    radio.sendNumber(receivedNumber)
     recv_timeout = 0
     if (192 < receivedNumber) {
         basic.showLeds(`
